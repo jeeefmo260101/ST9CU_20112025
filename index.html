@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul Integritas & Disiplin ASN (5 Fokus)</title>
+    <!-- Google Font: Poppins for modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Global Styles and Reset */
+        :root {
+            --color-dark: #1f2937;
+            --color-light: #f9fafb;
+            --color-text: #374151;
+            --font-main: 'Poppins', sans-serif;
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--color-light);
+            color: var(--color-text);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Styling */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            border-radius: 16px; 
+            background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%); /* New Header Gradient: Violet */
+            color: white;
+            box-shadow: 0 10px 20px rgba(124, 58, 237, 0.3);
+        }
+
+        header h1 {
+            font-size: clamp(1.8em, 4vw, 2.8em);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: clamp(0.9em, 2vw, 1.1em);
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        /* Card Grid Layout (Responsive) */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        /* Card Styling (Robust and Pixar Art Style) */
+        .card {
+            background-color: white;
+            border-radius: 24px; 
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); 
+            color: var(--color-dark);
+            border: 1px solid #e5e7eb;
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Card Header with Gradient Background */
+        .card-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 30px;
+            border-top-left-radius: 24px;
+            border-top-right-radius: 24px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            height: 100px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Icon Styling (Pixar Art Interpretation) */
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+            padding: 10px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.4), 0 3px 8px rgba(0, 0, 0, 0.4); 
+        }
+
+        .card-icon svg {
+            color: var(--color-dark);
+            width: 28px;
+            height: 28px;
+            stroke-width: 2.8; 
+        }
+
+        /* Card Content - New structure for informative module */
+        .card-content {
+            flex-grow: 1;
+            padding-top: 120px; /* Space for the header */
+        }
+
+        .concept-title {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #4b5563;
+            margin-bottom: 5px;
+            border-bottom: 2px solid;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        .explanation {
+            font-size: 0.95em;
+            margin-bottom: 20px;
+            color: var(--color-dark);
+        }
+
+        .reference-box {
+            padding: 15px;
+            border-radius: 12px;
+            background-color: #f3f4f6;
+            border-left: 5px solid;
+            margin-top: 10px;
+        }
+
+        .reference-label {
+            font-weight: 600;
+            font-size: 0.85em;
+            color: #6b7280;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .regulation {
+            font-size: 0.8em;
+            font-style: italic;
+            font-weight: 500;
+            color: #4b5563;
+        }
+
+
+        /* Gradient Definitions for 5 Cards */
+        
+        /* Card 1: Orange/Amber (Insider Trading) */
+        .card-1 { border-left-color: #fcd34d; }
+        .card-1 .card-header { background: linear-gradient(135deg, #ea580c 0%, #fcd34d 100%); }
+        .card-1 .concept-title { border-bottom-color: #ea580c; }
+        .card-1 .reference-box { border-left-color: #ea580c; }
+
+        /* Card 2: Violet/Indigo (Perilaku Sederhana) */
+        .card-2 { border-left-color: #a78bfa; }
+        .card-2 .card-header { background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%); }
+        .card-2 .concept-title { border-bottom-color: #7c3aed; }
+        .card-2 .reference-box { border-left-color: #7c3aed; }
+
+        /* Card 3: Red/Rose (Kompeten) */
+        .card-3 { border-left-color: #f87171; }
+        .card-3 .card-header { background: linear-gradient(135deg, #dc2626 0%, #f87171 100%); }
+        .card-3 .concept-title { border-bottom-color: #dc2626; }
+        .card-3 .reference-box { border-left-color: #dc2626; }
+
+        /* Card 4: Blue/Sky (Gratifikasi) */
+        .card-4 { border-left-color: #60a5fa; }
+        .card-4 .card-header { background: linear-gradient(135deg, #2563eb 0%, #60a5fa 100%); }
+        .card-4 .concept-title { border-bottom-color: #2563eb; }
+        .card-4 .reference-box { border-left-color: #2563eb; }
+
+        /* Card 5: Teal/Cyan (Disiplin ASN HD Berat) */
+        .card-5 { border-left-color: #06b6d4; }
+        .card-5 .card-header { background: linear-gradient(135deg, #0d9488 0%, #06b6d4 100%); }
+        .card-5 .concept-title { border-bottom-color: #0d9488; }
+        .card-5 .reference-box { border-left-color: #0d9488; }
+
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            border-top: 1px solid #e5e7eb;
+            font-size: 0.85em;
+            color: #6b7280;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Modul Integritas & Disiplin ASN</h1>
+            <p>5 Fokus Penting: Etika, Benturan Kepentingan, dan Sanksi Disiplin | BPS Provinsi Sumatera Utara</p>
+        </header>
+
+        <section class="card-grid">
+
+            <!-- Card 1: Benturan Kepentingan (Insider Trading) -->
+            <div class="card card-1">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i data-lucide="lock"></i>
+                    </div>
+                    <h2 class="card-title">Benturan Kepentingan: Insider Trading</h2>
+                </div>
+                <div class="card-content">
+                    <h3 class="concept-title">Penyalahgunaan Informasi Orang Dalam</h3>
+                    <p class="explanation">Keputusan Pejabat ASN A mengenai lokasi proyek, diikuti dengan pembelian tanah di lokasi tersebut oleh istrinya, termasuk kategori **Penyalahgunaan informasi orang dalam (insider trading)**. Ini merupakan pelanggaran etika serius.</p>
+                    <div class="reference-box">
+                        <p class="reference-label"><i data-lucide="book-open" style="width:16px; height:16px;"></i>Regulasi & Referensi</p>
+                        <p class="regulation">PP No. 94 Tahun 2021 tentang Disiplin PNS (Larangan Konflik Kepentingan).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Perilaku Sederhana (Non-Hedonis) -->
+            <div class="card card-2">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i data-lucide="eye-off"></i>
+                    </div>
+                    <h2 class="card-title">Integritas: Larangan Perilaku Hedonis</h2>
+                </div>
+                <div class="card-content">
+                    <h3 class="concept-title">Menghindari Penggunaan Barang Mewah</h3>
+                    <p class="explanation">Perilaku tidak hedonis yang harus dihindari ASN adalah **Menggunakan barang mewah secara mencolok dan tidak wajar**. Hal ini diatur untuk menjaga citra dan integritas ASN dari gaya hidup mewah.</p>
+                    <div class="reference-box">
+                        <p class="reference-label"><i data-lucide="book-open" style="width:16px; height:16px;"></i>Regulasi & Referensi</p>
+                        <p class="regulation">PP No. 94 Tahun 2021 (Larangan Gaya Hidup Mewah) dan Kode Etik ASN.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: BerAKHLAK (Kompeten) -->
+            <div class="card card-3">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i data-lucide="target"></i>
+                    </div>
+                    <h2 class="card-title">BerAKHLAK: Panduan Perilaku Kompeten</h2>
+                </div>
+                <div class="card-content">
+                    <h3 class="concept-title">Melaksanakan Tugas Kualitas Terbaik</h3>
+                    <p class="explanation">Perilaku ASN yang melaksanakan tugas dengan kualitas terbaik adalah perwujudan dari panduan perilaku **Kompeten**. Ini mencerminkan komitmen untuk terus belajar dan meningkatkan kapabilitas diri.</p>
+                    <div class="reference-box">
+                        <p class="reference-label"><i data-lucide="book-open" style="width:16px; height:16px;"></i>Regulasi & Referensi</p>
+                        <p class="regulation">Surat Edaran Menteri PANRB No. 20 Tahun 2021 tentang Core Values ASN.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: Gratifikasi Pengecualian (Profesional/Wajar) -->
+            <div class="card card-4">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i data-lucide="award"></i>
+                    </div>
+                    <h2 class="card-title">Gratifikasi: Pengecualian Apresiasi Wajar</h2>
+                </div>
+                <div class="card-content">
+                    <h3 class="concept-title">Hadiah Profesional yang Dikecualikan</h3>
+                    <p class="explanation">ASN yang menerima hadiah dari pihak luar sebagai bentuk apresiasi setelah menjalankan tugas secara profesional dan telah mendapatkan izin atasan, termasuk jenis gratifikasi yang **Dikecualikan**, asalkan nilainya wajar dan berlaku umum.</p>
+                    <div class="reference-box">
+                        <p class="reference-label"><i data-lucide="book-open" style="width:16px; height:16px;"></i>Regulasi & Referensi</p>
+                        <p class="regulation">Peraturan KPK No. 2 Tahun 2014 tentang Pedoman Pelaporan Gratifikasi.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5: Disiplin ASN (Hukuman Berat) -->
+            <div class="card card-5">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i data-lucide="scale"></i>
+                    </div>
+                    <h2 class="card-title">Disiplin ASN: Hukuman Disiplin Berat</h2>
+                </div>
+                <div class="card-content">
+                    <h3 class="concept-title">Penurunan Pangkat Setingkat 3 Tahun</h3>
+                    <p class="explanation">Sanksi berupa **penurunan pangkat setingkat lebih rendah selama 3 tahun** merupakan salah satu jenis Hukuman Disiplin **Berat**. Sanksi ini dikenakan untuk pelanggaran disiplin dengan dampak serius.</p>
+                    <div class="reference-box">
+                        <p class="reference-label"><i data-lucide="book-open" style="width:16px; height:16px;"></i>Regulasi & Referensi</p>
+                        <p class="regulation">Peraturan Pemerintah No. 94 Tahun 2021 tentang Disiplin PNS (Pasal 11 Ayat (4)).</p>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+
+        <footer>
+            Pahami Regulasi, Tingkatkan Kompetensi. © 2025 Tim Pengembangan Kompetensi dan Hukum BPS Provinsi Sumatera Utara
+        </footer>
+    </div>
+
+    <!-- Script to initialize Lucide Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+
+</body>
+</html>
